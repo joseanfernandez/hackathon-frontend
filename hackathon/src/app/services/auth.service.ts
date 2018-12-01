@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User2 } from '../interfaces/user2';
+import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,8 +13,8 @@ export class AuthService {
 
   authState = null;
   currenUser: any;
-  users: Observable<User2[]>;
-  usersCollection: AngularFirestoreCollection<User2>;
+  users: Observable<User[]>;
+  usersCollection: AngularFirestoreCollection<User>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -28,7 +28,7 @@ export class AuthService {
     this.usersCollection = this.afs.collection('users');
     this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
-        const data = a.payload.doc.data() as User2;
+        const data = a.payload.doc.data() as User;
         data.uid = a.payload.doc.id;
         return data;
       });
@@ -57,9 +57,9 @@ export class AuthService {
     return this.users;
   }
 
-  addUserData(uid, name, email) {
-    const userRef: AngularFirestoreDocument<User2> = this.afs.doc(`users/${uid}`);
-    const data: User2 = {
+  addUserData(uid, email) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
+    const data: User = {
       uid: uid,
       name: name,
       email: email
