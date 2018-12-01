@@ -1,22 +1,67 @@
-<h2>Nuevo Hackathon</h2>
 <form>
-  <p>
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" [(ngModel)]="hackathon.title"/>
-  </p>
-  <p>
-    <label for="technology">Tecnología</label>
-    <input type="text" id="technology" name="technology" [(ngModel)]="hackathon.technology"/>
-  </p>
-  <p>
-    <label for="date">Fecha</label>
-    <input type="date" id="date" name="date" [(ngModel)]="hackathon.date"/>
-  </p>
-  <p>
-    <label for="notes">Notas</label>
-    <textarea id="notes" name="notes">{{ hackathon.notes }}</textarea>
-  </p>
-  <p>
-    <button (click)="submit()">Enviar</button>
-  </p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h2>Nuevo Hackathon</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input class="form-control" 
+              type="text" 
+              id="title" 
+              name="title" 
+              required
+              placeholder="Nombre del Hackathon"
+              [(ngModel)]="hackathon.title"/>
+        </div>
+        <ng-container *ngIf="!checkTitleValue()">
+          <div class="text-danger">Debes introducir el titulo</div>
+        </ng-container>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="technology">Tecnología</label>
+          <input class="form-control" 
+              type="text" 
+              id="technology" 
+              name="technology"
+              required
+              placeholder="Tecnología del Hackathon"
+              [(ngModel)]="hackathon.technology"/>
+        </div>
+        <ng-container *ngIf="!checkTechnologyValue()">
+          <div class="text-danger">Debes introducir la tecnología del hackathon</div>
+        </ng-container>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="date">Fecha</label>
+          <input class="form-control" 
+              type="date" 
+              id="date" 
+              name="date" 
+              [(ngModel)]="hackathon.date"/>
+        </div>
+        <ng-container *ngIf="!checkDateValue()">
+          <div class="text-danger">Debes introducir la fecha</div>
+        </ng-container>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="notes">Notas</label>
+          <textarea class="form-control" id="notes" name="notes">{{ hackathon.notes }}</textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">
+        <button class="btn btn-danger" (click)="reset()">Reset</button>
+        &nbsp;
+        <button class="btn btn-success" (click)="submit()">Enviar</button>
+      </div>
+    </div>
+  </div>
 </form>
