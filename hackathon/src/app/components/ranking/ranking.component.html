@@ -1,0 +1,18 @@
+<h1>Ranking</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posición</th>
+      <th>Nombre</th>
+      <th>Puntos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of topUsers; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.score }}</td>
+    </tr>
+  </tbody>
+</table>
