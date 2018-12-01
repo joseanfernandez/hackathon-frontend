@@ -25,7 +25,7 @@ export class AuthService {
       this.authState = auth;
     });
 
-    this.usersCollection = this.afs.collection('users', ref => ref.orderBy('lastName'));
+    this.usersCollection = this.afs.collection('users');
     this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as User2;
@@ -33,6 +33,7 @@ export class AuthService {
         return data;
       });
     }));
+    console.log(this.users);
   }
 
   login(email: string, password: string) {
@@ -42,5 +43,9 @@ export class AuthService {
       })
       .catch(error => {
       });
+  }
+
+  getUsers() {
+    return this.users;
   }
 }
