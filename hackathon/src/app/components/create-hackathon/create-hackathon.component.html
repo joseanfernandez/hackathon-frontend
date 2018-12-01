@@ -1,0 +1,22 @@
+<h2>Nuevo Hackathon</h2>
+<form>
+  <p>
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" [(ngModel)]="hackathon.title"/>
+  </p>
+  <p>
+    <label for="technology">Tecnología</label>
+    <input type="text" id="technology" name="technology" [(ngModel)]="hackathon.technology"/>
+  </p>
+  <p>
+    <label for="date">Fecha</label>
+    <input type="date" id="date" name="date" [(ngModel)]="hackathon.date"/>
+  </p>
+  <p>
+    <label for="notes">Notas</label>
+    <textarea id="notes" name="notes">{{ hackathon.notes }}</textarea>
+  </p>
+  <p>
+    <button (click)="submit()">Enviar</button>
+  </p>
+</form>
