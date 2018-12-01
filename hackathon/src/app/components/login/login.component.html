@@ -1,5 +1,12 @@
 <div>
-  <input [(ngModel)]="email" type="text" placeholder="Email">
-  <input [(ngModel)]="password" type="password" placeholder="Password">
-  <button (click)="login()">Log In</button>
+<div class="form-group">
+  <label for="exampleInputEmail1">Dirección de Email</label>
+  <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Contraseña</label>
+  <input [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+
+<button (click)="login()" class="btn btn-sm btn-primary">Log In</button>
 </div>
