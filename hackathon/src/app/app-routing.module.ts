@@ -7,7 +7,7 @@ import { HackathonComponent } from './components/hackathon/hackathon.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'hackaton', component: HackathonComponent}
+  {path: 'hackathon', component: HackathonComponent}
 ];
 
 @NgModule({
