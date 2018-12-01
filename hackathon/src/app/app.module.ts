@@ -24,7 +24,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HackathonComponent,
     RankingComponent,
     RegistroComponent,
-    CreateHackathonComponent
+    CreateHackathonComponent,
     NavbarComponent
   ],
   imports: [
