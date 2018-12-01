@@ -36,6 +36,14 @@ export class AuthService {
     console.log(this.users);
   }
 
+  registerUser(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(res => resolve (res.user.uid),
+        err => reject (err));
+    });
+  }
+
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((userData) => {
@@ -47,5 +55,19 @@ export class AuthService {
 
   getUsers() {
     return this.users;
+  }
+
+  addUserData(uid, email) {
+    const userRef: AngularFirestoreDocument<User2> = this.afs.doc(`users/${uid}`);
+    const data: User2 = {
+      uid: uid,
+      name: name,
+      email: email,
+    };
+    return userRef.set(data).then(_ => {
+      console.log('ok');
+    }).catch(function(err) {
+      console.log(err);
+    });
   }
 }

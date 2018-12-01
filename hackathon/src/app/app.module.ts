@@ -11,12 +11,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RankingComponent
+    RankingComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
