@@ -12,14 +12,16 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { HackathonComponent } from './components/hackathon/hackathon.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RankingComponent,
     RegistroComponent,
+    HackathonComponent,
+    RankingComponent,
     NavbarComponent
   ],
   imports: [
