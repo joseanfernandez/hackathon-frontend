@@ -1,3 +1,10 @@
-<p>
-  hackathon works!
-</p>
+<div *ngFor="let h of hackathon" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{h.title}}</h5>
+      <p class="card-text">{{h.technology}}</p> 
+      <p class="card-text">{{h.date}}</p> 
+      <a href="#" class="btn btn-primary">Apúntate</a>
+    </div>
+  </div>
+  
+  
