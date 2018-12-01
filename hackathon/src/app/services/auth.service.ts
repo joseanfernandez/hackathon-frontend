@@ -70,4 +70,8 @@ export class AuthService {
     });
   }
 
+  get currentUserId(): any {
+    return this.authState.uid;
+  }
+
 }
