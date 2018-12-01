@@ -10,12 +10,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { RegistroComponent } from './components/registro/registro.component';
+import { HackathonComponent } from './components/hackathon/hackathon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    HackathonComponent
   ],
   imports: [
     BrowserModule,

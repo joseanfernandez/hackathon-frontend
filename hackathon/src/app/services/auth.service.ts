@@ -33,7 +33,6 @@ export class AuthService {
         return data;
       });
     }));
-    console.log(this.users);
   }
 
   registerUser(email: string, password: string) {
@@ -70,4 +69,5 @@ export class AuthService {
       console.log(err);
     });
   }
+
 }
