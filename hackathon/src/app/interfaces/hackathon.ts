@@ -1,5 +1,5 @@
 export interface Hackathon {
-  id: string;
+  id?: string;
   title: string;
   technology: string;
   date: string;

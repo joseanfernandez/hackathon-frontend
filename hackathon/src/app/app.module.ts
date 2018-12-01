@@ -13,14 +13,19 @@ import { environment } from '../environments/environment';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CreateHackathonComponent } from './components/create-hackathon/create-hackathon.component';
+import { HackathonComponent } from './components/hackathon/hackathon.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegistroComponent,
+    HackathonComponent,
     RankingComponent,
     RegistroComponent,
     CreateHackathonComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
