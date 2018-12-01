@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RankingService } from '../../services/ranking.service';
+import { User } from '../../intefaces/user';
+
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
@@ -7,19 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingComponent implements OnInit {
 
-  private _topUsers: any[] = [];
+  private _topUsers: User[] = [];
   public get topUsers() { return this._topUsers; }
 
-  constructor() { }
+  constructor(public ranking: RankingService) { }
 
   ngOnInit() {
     this.generateHardcodeUsers();
+    this.ranking.getTopUsers().subscribe((users: User[]) => {
+      this._topUsers = [...users];
+    });
   }
 
   generateHardcodeUsers() {
     for (let i = 1; i <= 20; i++) {
       this._topUsers.push({
+        id: `$(i)`,
         name: 'Nombre ' + i,
+        lastname: 'Apellido',
+        email: 'user@mail.com',
         score: Math.ceil(Math.random() * 10000)
       });
     }
