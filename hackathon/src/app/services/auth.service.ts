@@ -62,7 +62,7 @@ export class AuthService {
     const data: User = {
       uid: uid,
       name: name,
-      email: email,
+      email: email
     };
     return userRef.set(data).then(_ => {
       console.log('ok');
